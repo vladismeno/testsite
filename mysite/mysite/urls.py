@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('news/', index),  # вызов функции index
     # path('test/', test),
-    path('news/', include('news.urls'))
+    path('news/', include('news.urls')),
+    path('', include('news.urls')),
 ]
