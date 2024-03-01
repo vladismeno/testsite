@@ -32,20 +32,25 @@
     <h1>{{ title }}</h1>
     <div class="row">
         <div class="col-md-12">
-            {% for item in news %}
+            {% for item in news reversed %}
             <div class="card mb-3">
                 <div class="card-header">
+                    {{ forloop.counter }}
                     Категория: {{ item.category.title }}
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{ item.title }}</h5>
-                    <p class="card-text">{{ item.content }}</p>
+                    <h5 class="card-title {% cycle 'text-danger' 'text-success' 'text-warning' %}">{{ item.title }}</h5>
+                    {% autoescape off %}
+                        <p class="card-text">{{ item.content }}</p>
+                    {% endautoescape %}
                     <a href="#" class="btn btn-primary">Read more...</a>
                 </div>
                 <div class="card-footer text-body-secondary">
                     {{ item.created_at|date:"Y-m-d H:i:m:s" }}
                 </div>
             </div>
+            {% empty %}
+                Упс...
             {% endfor %}
         </div>
     </div>
