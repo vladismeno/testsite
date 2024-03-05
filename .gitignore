@@ -3,5 +3,3 @@ venv
 db.sqlite3
 __pycache__/
 media
-/mysite/static/admin/
-/mysite/static/bootstrap/
