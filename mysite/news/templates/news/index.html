@@ -17,9 +17,9 @@
     <div class="card-body">
         <div class="media">
             {% if item.photo %}
-            <img src="{{ item.photo.url }}" alt="" width="350" class="mr-3"/>
+            <img src="{{ item.photo.url }}" alt="" width="350" class="me-3"/>
             {% else %}
-            <img src="https://picsum.photos/id/1060/350/235/?blur=1" alt="" class="mr-3">
+            <img src="https://picsum.photos/id/1060/350/235/?blur=1" alt="" class="me-3">
             {% endif %}
             <div class="media-body">
                 <h5 class="card-title {% cycle 'text-danger' 'text-success' 'text-warning' %}">{{ item.title }}</h5>
