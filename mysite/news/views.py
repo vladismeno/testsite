@@ -2,10 +2,19 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 
 from .models import News, Categories
 from .forms import NewsForm
 from .utils import MyMixin
+
+
+def test(request):
+    objects = ['john1', 'paul2', 'george3', 'ringo4', 'john5', 'paul6', 'george7', 'ringo8']
+    paginator = Paginator(objects, 3)
+    page_num = request.GET.get('page', 1)
+    page_objects = paginator.get_page(page_num)
+    return render(request, 'news/test.html', {'page_obj': page_objects})
 
 
 class HomeNews(MyMixin, ListView):
@@ -13,6 +22,7 @@ class HomeNews(MyMixin, ListView):
     template_name = 'news/home_news_list.html'
     context_object_name = 'news'
     mixin_prop = 'hello world'
+
     # можно добавить это свойство здесь, чтобы оптимизировать запрос
     # queryset = News.objects.select_related('category')
 
@@ -75,7 +85,6 @@ def get_category(request, category_id):
         'category': category
     }
     return render(request, template_name='news/category.html', context=context)
-
 
 # def view_news(request, news_id):
 #     # news_item = News.objects.get(pk=news_id)
