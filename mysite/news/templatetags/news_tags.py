@@ -20,5 +20,5 @@ def show_categories(arg1='Hello', arg2='world'):
     # categories = cache.get('categories')
     # if not categories:
     #     categories = Categories.objects.annotate(cnt=Count('news', filter=F('news__is_published'))).filter(cnt__gt=0)
-    #     cache.set('categories', categories, 30)
+    #     cache.set('categories', categories, 20)
     return {"categories": categories}
