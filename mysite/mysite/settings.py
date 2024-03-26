@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'ckeditor',
     'ckeditor_uploader',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -141,7 +142,7 @@ INTERNAL_IPS = [
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 465  # 2525
 EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_PASSWORD = 'ozip xryd yxno mpuk'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
@@ -210,6 +211,10 @@ CKEDITOR_CONFIGS = {
         ]),
     }
 }
+
+CAPTCHA_LETTER_ROTATION = None
+CAPTCHA_CHALLENGE_FUNCT = 'captcha.helpers.math_challenge'
+CAPTCHA_NOISE_FUNCTIONS = None
 
 
 
