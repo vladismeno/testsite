@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',  # зарегистрировали новое приложение
+    'testapp.apps.TestappConfig',  # зарегистрировали новое приложение
     'debug_toolbar',
     'ckeditor',
     'ckeditor_uploader',
